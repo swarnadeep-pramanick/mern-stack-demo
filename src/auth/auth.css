@@ -1,0 +1,67 @@
+.login-form{
+    width: 30rem;
+    display: flex;
+    margin:auto;
+    flex-direction: column;
+}
+.auth-card{
+    width: fit-content;
+    margin:auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.linkTo{
+    text-decoration: none;
+    color: red;
+}
+@keyframes registrationLink {
+    from {color: red;}
+    to {color: rgb(43, 195, 9);};
+}
+.linkTo:hover{
+    color: rgb(43, 195, 9);
+    animation-name: registrationLink;
+    animation-duration: 0.5s;
+}
+
+@media only screen and (max-width: 750px){
+    .auth-card{
+        width: 19rem;
+        margin:auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-form{
+        width: 15rem;
+        display: flex;
+        margin:auto;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .auth-card{
+        width: 13rem;
+        margin:auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-form{
+        width: 11rem;
+        display: flex;
+        margin:auto;
+        flex-direction: column;
+    }
+}

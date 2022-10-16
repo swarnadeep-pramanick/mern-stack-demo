@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 import './NewPlace.css'
 
 const NewPlace = () => {
-    let formData = {}
     const [formValue,setFormValue] = useState({
         title:'',
         description:''
@@ -18,7 +17,7 @@ const NewPlace = () => {
         // console.log('test',formValue)
     }
     const placeSubmitHandler = e => {
-        const newData = {... formValue}
+        const newData = {...formValue}
         console.log(newData)
     }
         
@@ -31,7 +30,7 @@ const NewPlace = () => {
             sx={{
                 width: '100%',
                 marginBottom: '15px'
-              }}
+            }}
             multiline
             maxRows={4}
             value={formValue.title}

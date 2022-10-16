@@ -5,6 +5,8 @@ import React from 'react';
 
 import MainNavigation from './shared/navigation/MainNavigation'
 import UserPlaces from './places/pages/UserPlaces';
+import Login from './auth/login';
+import EditPlace from './places/pages/EditPlace';
 
 function App() {
   return (
@@ -20,6 +22,12 @@ function App() {
         </Route>
         <Route path="/places/new" >
           <NewPlace />
+        </Route>
+        <Route path="/places/:placeId" >
+          <EditPlace />
+        </Route>
+        <Route path="/auth" >
+          <Login />
         </Route>
         <Redirect to="/" />
       </Switch>
