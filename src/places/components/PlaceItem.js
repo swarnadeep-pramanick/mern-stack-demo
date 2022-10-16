@@ -4,9 +4,18 @@ import './PlaceItem.css'
 import Button from '../../shared/FormElements/Button'
 import Modal from '../../shared/components/UIElemetns/Modal'
 import Map from '../../shared/components/UIElemetns/Map'
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const PlaceItem = props => {
     const [showMap,setShowMap] = useState(false)
+    const [del,setDel] = useState(false)
+    const deleteState = () => {
+      setDel(prevMode => !prevMode)
+    }
     const openMapHandler = () => {
         setShowMap(true)
     }
@@ -41,10 +50,31 @@ const PlaceItem = props => {
             <div className="place-item__actions">
               <Button inverse onClick={openMapHandler}>View On Map</Button>
               <Button to={`/places/${props.id}`}>Edit</Button>
-              <Button danger>Delete</Button>
+              <Button danger onClick={deleteState}>Delete</Button>
             </div>
           </Card>
         </li>
+        <Dialog
+        open={del}
+        onClose={deleteState}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Are you sure?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Pressing "Yes" will permanently delete this place and you wont be able to retrieve the data of it
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={deleteState}>No</Button>
+          <Button onClick={deleteState} autoFocus>
+            Yes
+          </Button>
+        </DialogActions>
+      </Dialog>
       </React.Fragment>
     );
 }
