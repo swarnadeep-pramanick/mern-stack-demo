@@ -8,7 +8,8 @@ import './NewPlace.css'
 const NewPlace = () => {
     const [formValue,setFormValue] = useState({
         title:'',
-        description:''
+        description:'',
+        address:''
     })
     const handleChange = event => {
         const name = event.target.name
@@ -40,7 +41,7 @@ const NewPlace = () => {
         <Box>
         
         <TextField
-          id="filled-multiline-static"
+        //   id="filled-multiline-static"
           label="Description"
           name="description"
           sx={{
@@ -53,6 +54,21 @@ const NewPlace = () => {
           onChange={handleChange}
           variant="filled"
         />
+        </Box>
+        <Box>
+            <TextField
+            id="outlined-multiline-flexible"
+            name='address'
+            label="Address"
+            sx={{
+                width: '100%',
+                marginBottom: '15px'
+            }}
+            multiline
+            maxRows={4}
+            value={formValue.address}
+            onChange={handleChange}
+            />
         </Box>
         <Box>
             <Button variant="outlined" onClick={placeSubmitHandler}>Save Location</Button>

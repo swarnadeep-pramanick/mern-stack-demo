@@ -28,14 +28,14 @@ function App() {
         <Route path="/" exact>
             <Users />
           </Route>
-          <Route path="/:userId/places" >
-            <UserPlaces />
-          </Route>
           <Route path="/places/new" >
             <NewPlace />
           </Route>
-          <Route path="/places/:placeId" >
-            <EditPlace />
+          <Route path="/:userId/places" >
+            <UserPlaces />
+          </Route>
+          <Route path="/places/edit/:placeId" >
+            <EditPlace exact/>
           </Route>
           <Redirect to="/" />
       </React.Fragment>
@@ -46,9 +46,12 @@ function App() {
       <Route path="/" exact>
       <Users />
       </Route>
+      <Route path="/:userId/places" >
+            <UserPlaces />
+          </Route>
       <Route path="/auth" >
             <Login />
-          </Route>
+      </Route>
       <Redirect to="/" />
       </React.Fragment>
     )

@@ -35,9 +35,11 @@ const EditPlace = () => {
         console.log(newData)
     }
         
-    if(place.id === placeId){
-        return (<form className="place-form" onSubmit={placeSubmitHandler}>
-        <Box>
+        return (
+        <form className="place-form" onSubmit={placeSubmitHandler}>
+            {placeId === place.id ? (
+                <React.Fragment>
+                <Box>
             <TextField
             id="outlined-multiline-flexible"
             name='title'
@@ -72,13 +74,11 @@ const EditPlace = () => {
         <Box>
             <Button variant="outlined" onClick={placeSubmitHandler}>Update Location</Button>
         </Box>
+                </React.Fragment> 
+            ):<h4>Unknown Place</h4>}
         
         {/* <Input type='text' label='Description' element='description' errorText={`Please Enter A Valid Description`}/> */}
     </form>)
-    }
-    else{
-        return (<form className="place-form"><h4>Unknown Place</h4></form>)
-    }
 }
 
 export default EditPlace

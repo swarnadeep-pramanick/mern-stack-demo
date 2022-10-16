@@ -1,5 +1,5 @@
 import { Card } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import './PlaceItem.css'
 import Button from '../../shared/FormElements/Button'
 import Modal from '../../shared/components/UIElemetns/Modal'
@@ -9,8 +9,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { authContext } from '../../shared/context/auth.context'
 
 const PlaceItem = props => {
+    const auth = useContext(authContext)
     const [showMap,setShowMap] = useState(false)
     const [del,setDel] = useState(false)
     const deleteState = () => {
@@ -49,8 +51,12 @@ const PlaceItem = props => {
             </div>
             <div className="place-item__actions">
               <Button inverse onClick={openMapHandler}>View On Map</Button>
-              <Button to={`/places/${props.id}`}>Edit</Button>
-              <Button danger onClick={deleteState}>Delete</Button>
+              {auth.isLoggedIn && (
+                <React.Fragment>
+                  <Button to={`/places/edit/${props.id}`}>Edit</Button>
+                  <Button danger onClick={deleteState}>Delete</Button>
+                </React.Fragment>
+              )}
             </div>
           </Card>
         </li>

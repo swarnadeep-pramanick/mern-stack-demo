@@ -5,4 +5,8 @@
     width: 90%;
     max-width: 40rem;
   }
-  
+.place-item__custom{
+  width: 90% !important;
+    height: 57% !important;
+    padding-bottom: 21px !important;
+}
