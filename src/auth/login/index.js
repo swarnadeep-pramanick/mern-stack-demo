@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl'
 import OutlinedInput from '@mui/material/OutlinedInput'
@@ -14,8 +14,10 @@ import { Controller, useForm } from 'react-hook-form'
 import { Card, CardContent } from '@mui/material';
 
 import '../auth.css'
+import { authContext } from '../../shared/context/auth.context';
 
 const Login = () => {
+    const auth = useContext(authContext)
     const [isLogin,setIsLogin] = useState(true)
     const [showPassword, setShowPassword] = useState(false)
     const defaultValues = {
@@ -38,6 +40,7 @@ const Login = () => {
 
   const SubmitForm = (data) => {
     console.log(data)
+    auth.login()
   }
   const handleSwitch = (e) => {
     e.preventDefault()
