@@ -8,6 +8,7 @@ import UserPlaces from './places/pages/UserPlaces';
 import Login from './auth/login';
 import EditPlace from './places/pages/EditPlace';
 import { authContext } from './shared/context/auth.context'
+import { ToastContainer } from 'react-toast'
 
 function App() {
   const [isLoggedIn,setIsLoggedIn] = useState(false)
@@ -68,6 +69,8 @@ function App() {
         </Switch>
         </main>
       </Router>
+
+      <ToastContainer position='bottom-right' delay={2000} />
     </authContext.Provider>
   );
 }
