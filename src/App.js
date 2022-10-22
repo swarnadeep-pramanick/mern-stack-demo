@@ -26,9 +26,6 @@ function App() {
   if(isLoggedIn){
     routes = (
       <React.Fragment>
-        <Route path="/" exact>
-            <Users />
-          </Route>
           <Route path="/places/new" >
             <NewPlace />
           </Route>
@@ -44,9 +41,6 @@ function App() {
   }else{
     routes=(
       <React.Fragment>
-      <Route path="/" exact>
-      <Users />
-      </Route>
       <Route path="/:userId/places" >
             <UserPlaces />
           </Route>
@@ -61,7 +55,12 @@ function App() {
   return (
     <authContext.Provider value={{ isLoggedIn:isLoggedIn, login:login,logout:logout }}>
       {/* {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/" />} */}
+      
       <Router>
+      <Route path="/" exact>
+      {console.log("Called")}
+        <Users />
+      </Route>
         <MainNavigation />
         <main>
         <Switch>

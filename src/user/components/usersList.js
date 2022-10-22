@@ -1,6 +1,7 @@
 import React from "react";
 import './userList.css'
 
+
 import UserItem from "./userItem";
 
 const UserList = (props) => {
@@ -19,7 +20,7 @@ const UserList = (props) => {
                     id={user.id}
                     image={user.image}
                     name={user.name}
-                    placeCount={user.places}
+                    placeCount={user.places.length}
                   />
                 );
             })}
