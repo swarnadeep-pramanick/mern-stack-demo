@@ -13,7 +13,7 @@
     height: 100%;
     text-decoration: none;
     padding: 1rem;
-    color: white;
+    color: transparent;
     background: #292929;
   }
   
@@ -41,7 +41,14 @@
     font-size: 1.5rem;
     margin: 0 0 0.5rem 0;
     font-weight: normal;
-    color: #1106e2;
+    color: #ffd900;
+  }
+
+  .user-item__info h3 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: normal;
+    color: white;
   }
   
   /* .user-item:hover h2,
